@@ -1,0 +1,24 @@
+{
+    "name": "ethanclevenger91/sterner-stuff-wordpress-core",
+    "type": "wordpress-plugin",
+    "description": "Baseline settings for Sterner Stuff WordPress sites",
+    "homepage": "https://sternerstuffdesign.com",
+    "license": "MIT",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "authors": [
+        {
+            "name": "Nick Hoobin",
+            "email": "nick@webspecdesign.com",
+            "homepage": "http://webspecdesign.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Ethan Clevenger",
+            "email": "ethan@sternerstuffdesign.com",
+            "homepage": "https://sternerstuffdesign.com",
+            "role": "Owner"
+        }
+    ]
+}
