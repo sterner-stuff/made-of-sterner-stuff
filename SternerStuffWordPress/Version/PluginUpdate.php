@@ -1,6 +1,6 @@
 <?php
 
-namespace WebspecWordPress\Version;
+namespace SternerStuffWordPress\Version;
 
 class PluginUpdate {
   public $upgrader;
