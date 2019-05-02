@@ -1,3 +1,7 @@
+## [6.3.0] - 2019-05-02
+### Added
+- Sensible Captcha defaults for Gravity Forms
+
 ## [6.2.0] - 2019-05-02
 ### Added
 - Constant for Gravity Forms license from .env
