@@ -5,7 +5,8 @@
     "homepage": "https://sternerstuffdesign.com",
     "license": "MIT",
     "require": {
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "roots/wp-config": "^1.0"
     },
     "authors": [
         {

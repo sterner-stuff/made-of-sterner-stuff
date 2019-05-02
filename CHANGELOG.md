@@ -1,0 +1,7 @@
+## [6.2.0] - 2019-05-02
+### Added
+- Constant for Gravity Forms license from .env
+- Constants for Delicious Brains licenses from .env
+- Constants for Offload Media keys from .env
+- Constant for TinyPNG API key from .env
+- Dependency on roots/wp-config
