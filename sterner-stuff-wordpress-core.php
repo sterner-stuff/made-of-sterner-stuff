@@ -3,12 +3,12 @@
 Plugin Name: Sterner Stuff WordPress Core
 Plugin URI: https://sternerstuffdesign.com
 Description: Baseline settings for Sterner Stuff WordPress sites
-Version: 6.3.0
+Version: 7.0.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuffdesign.com
 */
 
-class SternerStuff {
+class SternerStuffWordPress {
 	private static $self = false;
 
 	function __construct() {
@@ -45,4 +45,4 @@ class SternerStuff {
 	}
 }
 
-SternerStuff::getInstance();
+SternerStuffWordPress::getInstance();
