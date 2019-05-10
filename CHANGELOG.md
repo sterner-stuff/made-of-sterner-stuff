@@ -1,3 +1,7 @@
+## [7.0.0] - 2019-05-10
+### Changed
+- Now installs as mu-plugin for license compatibility
+
 ## [6.3.0] - 2019-05-02
 ### Added
 - Sensible Captcha defaults for Gravity Forms

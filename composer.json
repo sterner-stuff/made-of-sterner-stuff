@@ -1,6 +1,6 @@
 {
     "name": "ethanclevenger91/sterner-stuff-wordpress-core",
-    "type": "wordpress-plugin",
+    "type": "wordpress-muplugin",
     "description": "Baseline settings for Sterner Stuff WordPress sites",
     "homepage": "https://sternerstuffdesign.com",
     "license": "MIT",
