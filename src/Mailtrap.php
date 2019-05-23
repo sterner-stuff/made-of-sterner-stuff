@@ -2,6 +2,10 @@
 
 namespace SternerStuffWordPress;
 
+/**
+ * If Mailtrap variables are set and it's on the development environment,
+ * use Mailtrap for emails
+ */
 class Mailtrap {
 	function __construct() {
 		add_action('phpmailer_init', [$this, 'enable_mailtrap']);

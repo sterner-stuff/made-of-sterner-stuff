@@ -21,7 +21,7 @@ class Permissions {
     }
   }
 
-  //extra caps for editors
+  // extra caps for editors
 	public function editor_roles() {
 		$caps_set = get_option('ws_caps_set');
 		if(!$caps_set) {

@@ -2,6 +2,9 @@
 
 namespace SternerStuffWordPress;
 
+/**
+ * Don't allow users to add H1s
+ */
 class EditingExperience {
   function __construct() {
     //Call later so we can filter out functionality

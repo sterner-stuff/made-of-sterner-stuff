@@ -21,5 +21,8 @@
             "homepage": "https://sternerstuffdesign.com",
             "role": "Owner"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {"SternerStuffWordPress\\": "src/"}
+    }
 }

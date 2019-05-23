@@ -2,6 +2,10 @@
 
 namespace SternerStuffWordPress;
 
+/**
+ * Hide Gravity Forms Captcha label and the Captcha badge
+ * Adhere to Google ToS for hiding Captcha badge
+ */
 class GravityFormsCaptcha {
 
 	public function __construct() 
