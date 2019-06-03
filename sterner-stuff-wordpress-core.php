@@ -3,7 +3,7 @@
 Plugin Name: Sterner Stuff WordPress Core
 Plugin URI: https://sternerstuffdesign.com
 Description: Baseline settings for Sterner Stuff WordPress sites
-Version: 7.1.0
+Version: 7.1.1
 Author: Ethan Clevenger
 Author URI: https://sternerstuffdesign.com
 */

@@ -43,6 +43,12 @@ class Constants {
 		Config::define('TINY_API_KEY', env('TINY_API_KEY'));
 
 		/**
+		 * Configure Mailgun
+		 */
+		Config::define('MAILGUN_USEAPI', env('MAILGUN_USEAPI') ?? true);
+		Config::define('MAILGUN_APIKEY', env('MAILGUN_APIKEY'));
+
+		/**
 		 * Apply new constants
 		 */
 		Config::apply();
