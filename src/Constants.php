@@ -25,28 +25,39 @@ class Constants {
 		/**
 		 * Configure WP Migrate DB Pro license
 		 */
-		Config::define('WPMDB_LICENCE', env('WPMDB_LICENCE'));
-
+		if(env('WPMDB_LICENCE')):
+			Config::define('WPMDB_LICENCE', env('WPMDB_LICENCE'));
+		endif;
+		
 		/**
 		 * Configure WP Offload Media license
 		 */
-		Config::define('AS3CFPRO_LICENCE', env('AS3CFPRO_LICENCE'));
+		if(env('AS3CFPRO_LICENCE')):
+			Config::define('AS3CFPRO_LICENCE', env('AS3CFPRO_LICENCE'));
+		endif;
 
 		/**
 		 * Configure Gravity Forms license
 		 */
-		Config::define('GF_LICENSE_KEY', env('GF_LICENSE_KEY'));
+		if(env('GF_LICENSE_KEY')):
+			Config::define('GF_LICENSE_KEY', env('GF_LICENSE_KEY'));
+		endif;
 
 		/**
 		 * Configure TinyPNG API Key
 		 */
-		Config::define('TINY_API_KEY', env('TINY_API_KEY'));
+		if(env('TINY_API_KEY')):
+			Config::define('TINY_API_KEY', env('TINY_API_KEY'));
+		endif;
 
 		/**
 		 * Configure Mailgun
 		 */
 		Config::define('MAILGUN_USEAPI', env('MAILGUN_USEAPI') ?? true);
-		Config::define('MAILGUN_APIKEY', env('MAILGUN_APIKEY'));
+
+		if(env('MAILGUN_APIKEY')):
+			Config::define('MAILGUN_APIKEY', env('MAILGUN_APIKEY'));
+		endif;
 
 		/**
 		 * Apply new constants
