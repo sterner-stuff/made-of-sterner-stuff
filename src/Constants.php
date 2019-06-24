@@ -59,6 +59,10 @@ class Constants {
 			Config::define('MAILGUN_APIKEY', env('MAILGUN_APIKEY'));
 		endif;
 
+		if(env('MAILGUN_DOMAIN')):
+			Config::define('MAILGUN_DOMAIN', env('MAILGUN_DOMAIN'));
+		endif;
+
 		/**
 		 * Apply new constants
 		 */
