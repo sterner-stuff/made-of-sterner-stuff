@@ -41,6 +41,9 @@ class SternerStuffWordPress {
 		if( env('CLOUDFLARE_ENABLED') ) {
 			new SternerStuffWordPress\CloudflareIps;
 		}
+		if( env('FASTLY_ENABLED') ) {
+			new SternerStuffWordPress\FastlyIps;
+		}
 	}
 
 	//Keep this method at the bottom of the class

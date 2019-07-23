@@ -41,7 +41,8 @@ abstract class ProxyIps {
 	protected function fetchIps() {
 		$response = wp_remote_get( $this->endpoint );
 		$ips = wp_remote_retrieve_body( $response );
-		$this->storeIps( $this->toString( $ips ) );
+		$ips = $this->toString( $ips );
+		$this->storeIps( $ips );
 		return $ips;
 	}
 
