@@ -21,7 +21,8 @@ class CloudflareIps extends ProxyIps {
 		$response_v6 = wp_remote_get( $this->endpoint2 );
 		$ips_v4 = wp_remote_retrieve_body( $response_v4 );
 		$ips_v6 = wp_remote_retrieve_body( $response_v6 );
-		$this->storeIps( $this->toString( $ips_v4 . $ips_v6 ) );
+		$ips = $this->toString( $ips_v4 . $ips_v6 );
+		$this->storeIps( $ips );
 		return $ips;
 	}
 
