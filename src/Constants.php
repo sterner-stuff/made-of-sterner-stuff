@@ -72,6 +72,11 @@ class Constants {
 		endif;
 
 		/**
+		 * Force PHPRedis, Predis no longer maintained
+		 */
+		Config::define('WP_REDIS_CLIENT', env('WP_REDIS_CLIENT') ?? 'pecl');
+
+		/**
 		 * Apply new constants
 		 */
 		Config::apply();
