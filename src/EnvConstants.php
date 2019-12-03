@@ -7,7 +7,7 @@ use Roots\WPConfig\Config;
 /**
  * Set constants for a variety of premium plugins
  */
-class Constants {
+class EnvConstants {
 	
 	public static function define() {
 

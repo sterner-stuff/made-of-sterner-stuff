@@ -3,7 +3,7 @@
 Plugin Name: Sterner Stuff WordPress Core
 Plugin URI: https://sternerstuffdesign.com
 Description: Baseline settings for Sterner Stuff WordPress sites
-Version: 7.4.0
+Version: 7.5.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuffdesign.com
 */
@@ -26,7 +26,9 @@ class SternerStuffWordPress {
 
 		new SternerStuffWordPress\LimitRevisions();
 
-		SternerStuffWordPress\Constants::define();
+		new SternerStuffWordPress\DisabledPlugins();
+
+		SternerStuffWordPress\EnvConstants::define();
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
 			$this->whitelistActiveProxies();
