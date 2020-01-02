@@ -67,7 +67,6 @@ class EnvConstants {
 		 * Configure Redis
 		 */
 		Config::define('WP_REDIS_DATABASE', (env('WP_REDIS_DATABASE') ?? 0));
-		Config::define('WP_REDIS_HOST', (env('WP_REDIS_HOST') ?? '127.0.0.1'));
 
 		if(env('WP_CACHE_KEY_SALT')):
 			Config::define('WP_CACHE_KEY_SALT', env('WP_CACHE_KEY_SALT'));

@@ -2,7 +2,7 @@
 
 namespace SternerStuffWordPress;
 
-class DisableSiteTracking {
+class DisableSiteKitTracking {
 
 	public function __construct() {
 		add_filter( 'googlesitekit_analytics_tracking_disabled', [$this, 'googlesitekit_analytics_tracking_disabled'] );
