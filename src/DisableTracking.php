@@ -37,7 +37,7 @@ class DisableTracking {
 
 	private function should_disable()
 	{
-		if(env('WP_ENV') != 'production') return true;
+		if(getenv('WP_ENV') != 'production') return true;
 
 		// If user is not logged in, fall back to default.
 		if( !is_user_logged_in() ) return false;

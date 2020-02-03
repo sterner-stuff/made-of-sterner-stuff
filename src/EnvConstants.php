@@ -14,9 +14,9 @@ class EnvConstants {
 		/**
 		 * Configure WP Offload Media
 		 */
-		if(($access_key_id = env('OFFLOAD_MEDIA_ACCESS_KEY_ID')) && ($secret_access_key = env('OFFLOAD_MEDIA_SECRET_ACCESS_KEY')) ) {
+		if(($access_key_id = getenv('OFFLOAD_MEDIA_ACCESS_KEY_ID')) && ($secret_access_key = getenv('OFFLOAD_MEDIA_SECRET_ACCESS_KEY')) ) {
 		    define( 'AS3CF_SETTINGS', serialize( array(
-		        'provider' => env('OFFLOAD_MEDIA_PROVIDER') ?: 'do',
+		        'provider' => getenv('OFFLOAD_MEDIA_PROVIDER') ?: 'do',
 		        'access-key-id' => $access_key_id,
 		        'secret-access-key' => $secret_access_key,
 		    ) ) );
@@ -25,42 +25,42 @@ class EnvConstants {
 		/**
 		 * Configure WP Migrate DB Pro license
 		 */
-		if(env('WPMDB_LICENCE')):
-			Config::define('WPMDB_LICENCE', env('WPMDB_LICENCE'));
+		if(getenv('WPMDB_LICENCE')):
+			Config::define('WPMDB_LICENCE', getenv('WPMDB_LICENCE'));
 		endif;
 		
 		/**
 		 * Configure WP Offload Media license
 		 */
-		if(env('AS3CFPRO_LICENCE')):
-			Config::define('AS3CFPRO_LICENCE', env('AS3CFPRO_LICENCE'));
+		if(getenv('AS3CFPRO_LICENCE')):
+			Config::define('AS3CFPRO_LICENCE', getenv('AS3CFPRO_LICENCE'));
 		endif;
 
 		/**
 		 * Configure Gravity Forms license
 		 */
-		if(env('GF_LICENSE_KEY')):
-			Config::define('GF_LICENSE_KEY', env('GF_LICENSE_KEY'));
+		if(getenv('GF_LICENSE_KEY')):
+			Config::define('GF_LICENSE_KEY', getenv('GF_LICENSE_KEY'));
 		endif;
 
 		/**
 		 * Configure TinyPNG API Key
 		 */
-		if(env('TINY_API_KEY')):
-			Config::define('TINY_API_KEY', env('TINY_API_KEY'));
+		if(getenv('TINY_API_KEY')):
+			Config::define('TINY_API_KEY', getenv('TINY_API_KEY'));
 		endif;
 
 		/**
 		 * Configure Mailgun
 		 */
-		Config::define('MAILGUN_USEAPI', env('MAILGUN_USEAPI') ?? true);
+		Config::define('MAILGUN_USEAPI', getenv('MAILGUN_USEAPI') ?? true);
 
-		if(env('MAILGUN_APIKEY')):
-			Config::define('MAILGUN_APIKEY', env('MAILGUN_APIKEY'));
+		if(getenv('MAILGUN_APIKEY')):
+			Config::define('MAILGUN_APIKEY', getenv('MAILGUN_APIKEY'));
 		endif;
 
-		if(env('MAILGUN_DOMAIN')):
-			Config::define('MAILGUN_DOMAIN', env('MAILGUN_DOMAIN'));
+		if(getenv('MAILGUN_DOMAIN')):
+			Config::define('MAILGUN_DOMAIN', getenv('MAILGUN_DOMAIN'));
 		endif;
 
 		/**
