@@ -28,7 +28,7 @@ class SternerStuffWordPress {
 
 		new SternerStuffWordPress\DisabledPlugins();
 
-		new SternerStuffWordPress\DisableSiteKitTracking();
+		new SternerStuffWordPress\DisableTracking();
 
 		SternerStuffWordPress\EnvConstants::define();
 
