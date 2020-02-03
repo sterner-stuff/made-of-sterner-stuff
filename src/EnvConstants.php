@@ -64,24 +64,6 @@ class EnvConstants {
 		endif;
 
 		/**
-		 * Configure Redis
-		 */
-		Config::define('WP_REDIS_DATABASE', (env('WP_REDIS_DATABASE') ?? 0));
-
-		if(env('WP_CACHE_KEY_SALT')):
-			Config::define('WP_CACHE_KEY_SALT', env('WP_CACHE_KEY_SALT'));
-		endif;
-		
-		if(env('WP_REDIS_DISABLED')):
-			Config::define('WP_REDIS_DISABLED', env('WP_REDIS_DISABLED'));
-		endif;
-
-		/**
-		 * Force PHPRedis, Predis no longer maintained
-		 */
-		Config::define('WP_REDIS_CLIENT', env('WP_REDIS_CLIENT') ?? 'pecl');
-
-		/**
 		 * Apply new constants
 		 */
 		Config::apply();
