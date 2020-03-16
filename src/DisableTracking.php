@@ -35,6 +35,7 @@ class DisableTracking implements ActionHookSubscriber, FilterHookSubscriber {
 
 	public function disable_ga_google_analytics_tracking() 
 	{
+		if(!$this->should_disable) return;
 		remove_action( 'wp_head', 'ga_google_analytics_tracking_code' );
 	}
 
