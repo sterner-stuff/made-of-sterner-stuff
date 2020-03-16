@@ -1,9 +1,13 @@
 <?php
+
+use SternerStuffWordPress\DisableTracking;
+use SternerStuffWordPress\PluginAPIManager;
+use SternerStuffWordPress\WooCommerceSandbox;
 /*
 Plugin Name: Sterner Stuff WordPress Core
 Plugin URI: https://sternerstuffdesign.com
 Description: Baseline settings for Sterner Stuff WordPress sites
-Version: 7.7.2
+Version: 8.0.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuffdesign.com
 */
@@ -28,9 +32,15 @@ class SternerStuffWordPress {
 
 		new SternerStuffWordPress\DisabledPlugins();
 
-		new SternerStuffWordPress\DisableTracking();
-
 		SternerStuffWordPress\EnvConstants::define();
+
+		$manager = new PluginAPIManager();
+
+		$plugin = new WooCommerceSandbox();
+		$manager->register($plugin);
+
+		$plugin = new DisableTracking();
+		$manager->register($plugin);
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
 			$this->whitelistActiveProxies();
