@@ -54,6 +54,7 @@ class EnvConstants {
 		 * Configure Mailgun
 		 */
 		Config::define('MAILGUN_USEAPI', getenv('MAILGUN_USEAPI') ?? true);
+		Config::define('MAILGUN_REGION', getenv('MAILGUN_REGION') ?? 'us');
 
 		if(getenv('MAILGUN_APIKEY')):
 			Config::define('MAILGUN_APIKEY', getenv('MAILGUN_APIKEY'));
