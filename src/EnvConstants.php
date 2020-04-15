@@ -64,6 +64,12 @@ class EnvConstants {
 		endif;
 
 		/**
+		 * WP-Rocket
+		 */
+		Config::define('WP_ROCKET_EMAIL', getenv('WP_ROCKET_EMAIL') ?? null);
+		Config::define('WP_ROCKET_KEY', getenv('WP_ROCKET_KEY') ?? null);
+
+		/**
 		 * Apply new constants
 		 */
 		Config::apply();
