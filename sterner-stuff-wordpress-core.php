@@ -1,16 +1,16 @@
 <?php
+/*
+Plugin Name: Made of Sterner Stuff
+Plugin URI: https://sternerstuff.dev
+Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
+Version: 8.0.0
+Author: Ethan Clevenger
+Author URI: https://sternerstuff.dev
+*/
 
 use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\PluginAPIManager;
 use SternerStuffWordPress\WooCommerceSandbox;
-/*
-Plugin Name: Sterner Stuff WordPress Core
-Plugin URI: https://sternerstuffdesign.com
-Description: Baseline settings for Sterner Stuff WordPress sites
-Version: 8.0.0
-Author: Ethan Clevenger
-Author URI: https://sternerstuffdesign.com
-*/
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 

@@ -1,8 +1,8 @@
 {
-    "name": "ethanclevenger91/sterner-stuff-wordpress-core",
+    "name": "sterner-stuff/made-of-sterner-stuff",
     "type": "wordpress-muplugin",
-    "description": "Baseline settings for Sterner Stuff WordPress sites",
-    "homepage": "https://sternerstuffdesign.com",
+    "description": "Core functionality for built-to-last Sterner Stuff WordPress sites.",
+    "homepage": "https://sternerstuff.dev",
     "license": "MIT",
     "require": {
         "composer/installers": "~1.0",
