@@ -1,12 +1,16 @@
 <?php
 /*
-Plugin Name: Sterner Stuff WordPress Core
-Plugin URI: https://sternerstuffdesign.com
-Description: Baseline settings for Sterner Stuff WordPress sites
-Version: 7.8.0
+Plugin Name: Made of Sterner Stuff
+Plugin URI: https://sternerstuff.dev
+Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
+Version: 8.0.0
 Author: Ethan Clevenger
-Author URI: https://sternerstuffdesign.com
+Author URI: https://sternerstuff.dev
 */
+
+use SternerStuffWordPress\DisableTracking;
+use SternerStuffWordPress\PluginAPIManager;
+use SternerStuffWordPress\WooCommerceSandbox;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
@@ -28,9 +32,15 @@ class SternerStuffWordPress {
 
 		new SternerStuffWordPress\DisabledPlugins();
 
-		new SternerStuffWordPress\DisableTracking();
-
 		SternerStuffWordPress\EnvConstants::define();
+
+		$manager = new PluginAPIManager();
+
+		$plugin = new WooCommerceSandbox();
+		$manager->register($plugin);
+
+		$plugin = new DisableTracking();
+		$manager->register($plugin);
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
 			$this->whitelistActiveProxies();

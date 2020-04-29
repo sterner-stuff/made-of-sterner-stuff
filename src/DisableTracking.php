@@ -2,22 +2,30 @@
 
 namespace SternerStuffWordPress;
 
-class DisableTracking {
+use SternerStuffWordPress\Interfaces\ActionHookSubscriber;
+use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
+
+class DisableTracking implements ActionHookSubscriber, FilterHookSubscriber {
 
 	public $should_disable = false;
 
-	public function __construct() {
-		add_action( 'init', [$this, 'init'] );
+	public static function get_actions()
+	{
+		return [
+			'init' => 'should_disable',
+			'wp_head' => [
+				'disable_ga_google_analytics_tracking',
+				1,
+			],
+		];
 	}
 
-	public function init()
+	public static function get_filters()
 	{
-		$this->should_disable = $this->should_disable();
-		if($this->should_disable) {
-			add_filter( 'googlesitekit_analytics_tracking_disabled', [$this, 'disable_googlesitekit_tracking'] );
-			add_action( 'wp_head', [$this, 'disable_ga_google_analytics_tracking'], 1 );
-			add_filter( 'monsterinsights_track_user', [$this, 'monsteranalytics_track_user'] );
-		}
+		return [
+			'googlesitekit_analytics_tracking_disabled' => 'disable_googlesitekit_tracking',
+			'monsterinsights_track_user' => 'monsteranalytics_track_user',
+		];
 	}
 
 	public function monsteranalytics_track_user( $should_track )
@@ -27,6 +35,7 @@ class DisableTracking {
 
 	public function disable_ga_google_analytics_tracking() 
 	{
+		if(!$this->should_disable) return;
 		remove_action( 'wp_head', 'ga_google_analytics_tracking_code' );
 	}
 
@@ -35,7 +44,7 @@ class DisableTracking {
 		return $this->should_disable ?: $disabled;
 	}
 
-	private function should_disable()
+	public function should_disable()
 	{
 		if(getenv('WP_ENV') != 'production') return true;
 
