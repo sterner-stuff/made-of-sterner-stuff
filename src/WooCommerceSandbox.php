@@ -4,10 +4,6 @@ namespace SternerStuffWordPress;
 
 use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
 
-/**
- * If Mailtrap variables are set and it's on the development environment,
- * use Mailtrap for emails
- */
 class WooCommerceSandbox implements FilterHookSubscriber {
 
 	/**
