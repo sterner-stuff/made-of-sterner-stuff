@@ -46,7 +46,7 @@ class DisableTracking implements ActionHookSubscriber, FilterHookSubscriber {
 
 	public function should_disable()
 	{
-		if(getenv('WP_ENV') != 'production') return true;
+		if(getenv('WP_ENV') && getenv('WP_ENV') != 'production') return true;
 
 		// If user is not logged in, fall back to default.
 		if( !is_user_logged_in() ) return false;

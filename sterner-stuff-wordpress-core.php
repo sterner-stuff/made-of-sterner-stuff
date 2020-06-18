@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 8.0.1
+Version: 8.0.2
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
