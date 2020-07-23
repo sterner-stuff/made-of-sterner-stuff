@@ -1,3 +1,7 @@
+## [8.0.3] - 2020-07-23
+### Fixed
+- Fixed disable tracking logic
+
 ## [7.0.0] - 2019-05-10
 ### Changed
 - Now installs as mu-plugin for license compatibility
