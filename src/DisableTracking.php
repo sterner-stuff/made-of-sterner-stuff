@@ -46,18 +46,28 @@ class DisableTracking implements ActionHookSubscriber, FilterHookSubscriber {
 
 	public function should_disable()
 	{
-		if(getenv('WP_ENV') && getenv('WP_ENV') != 'production') return true;
+		if(getenv('WP_ENV') && getenv('WP_ENV') != 'production') {
+			$this->should_disable = true;
+			return;
+		}
 
 		// If user is not logged in, fall back to default.
-		if( !is_user_logged_in() ) return false;
+		if( !is_user_logged_in() ) {
+			$this->should_disable = false;
+			return;
+		}
 
 		$user = wp_get_current_user();
 
 		// If the user's role is customer, don't disable tracking.
-		if('customer' == $user->roles[0]) return false;
+		if('customer' == $user->roles[0]) {
+			$this->should_disable = false;
+			return;
+		}
 
 		// Disable for all other logged in users.
-		return true;
+		$this->should_disable = true;
+		return;
 	}
 
 }
