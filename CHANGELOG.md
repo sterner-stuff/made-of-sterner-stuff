@@ -1,3 +1,7 @@
+## [8.0.4] - 2020-07-29
+### Fixed
+- Fixed defaults for some constants
+
 ## [8.0.3] - 2020-07-23
 ### Fixed
 - Fixed disable tracking logic
