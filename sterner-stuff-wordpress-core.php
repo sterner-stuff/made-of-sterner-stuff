@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 8.0.3
+Version: 8.1.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -11,6 +11,7 @@ Author URI: https://sternerstuff.dev
 use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\PluginAPIManager;
 use SternerStuffWordPress\WooCommerceSandbox;
+use SternerStuffWordPress\WPRocket;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
@@ -40,6 +41,9 @@ class SternerStuffWordPress {
 		$manager->register($plugin);
 
 		$plugin = new DisableTracking();
+		$manager->register($plugin);
+
+		$plugin = new WPRocket();
 		$manager->register($plugin);
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {

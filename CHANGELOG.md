@@ -1,3 +1,7 @@
+## [8.1.0] - 2020-08-11
+### Changed
+- Prevent WP-Rocket from setting `WP_CACHE` constant
+
 ## [8.0.3] - 2020-07-23
 ### Fixed
 - Fixed disable tracking logic
