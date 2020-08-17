@@ -1,3 +1,7 @@
+## [8.1.1] - 2020-08-17
+### New
+- Add MAILGUN_FROM_ADDRESS env configuration
+
 ## [8.1.0] - 2020-08-11
 ### Changed
 - Prevent WP-Rocket from setting `WP_CACHE` constant

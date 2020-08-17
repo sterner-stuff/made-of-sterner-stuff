@@ -64,6 +64,10 @@ class EnvConstants {
 			Config::define('MAILGUN_DOMAIN', env('MAILGUN_DOMAIN'));
 		endif;
 
+		if(env('MAILGUN_FROM_ADDRESS')):
+			Config::define('MAILGUN_FROM_ADDRESS', env('MAILGUN_FROM_ADDRESS'));
+		endif;
+
 		/**
 		 * WP-Rocket
 		 */
