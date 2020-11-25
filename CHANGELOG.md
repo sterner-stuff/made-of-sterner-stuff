@@ -1,3 +1,6 @@
+## [9.0.1] - 2020-11-25
+- Update remaining env calls
+
 ## [9.0.0] - 2020-11-25
 - Require oscarotero/env and version constraint
 

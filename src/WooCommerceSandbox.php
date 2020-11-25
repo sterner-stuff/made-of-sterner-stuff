@@ -3,6 +3,7 @@
 namespace SternerStuffWordPress;
 
 use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
+use function Env\env;
 
 class WooCommerceSandbox implements FilterHookSubscriber {
 

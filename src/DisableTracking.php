@@ -4,6 +4,7 @@ namespace SternerStuffWordPress;
 
 use SternerStuffWordPress\Interfaces\ActionHookSubscriber;
 use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
+use function Env\env;
 
 class DisableTracking implements ActionHookSubscriber, FilterHookSubscriber {
 
@@ -46,7 +47,7 @@ class DisableTracking implements ActionHookSubscriber, FilterHookSubscriber {
 
 	public function should_disable()
 	{
-		if(getenv('WP_ENV') && getenv('WP_ENV') != 'production') {
+		if(env('WP_ENV') && env('WP_ENV') != 'production') {
 			$this->should_disable = true;
 			return;
 		}

@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 9.0.0
+Version: 9.0.1
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -12,6 +12,7 @@ use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\PluginAPIManager;
 use SternerStuffWordPress\WooCommerceSandbox;
 use SternerStuffWordPress\WPRocket;
+use function Env\env;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 

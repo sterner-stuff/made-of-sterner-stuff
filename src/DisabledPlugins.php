@@ -3,6 +3,7 @@
 namespace SternerStuffWordPress;
 
 use Roots\WPConfig\Config;
+use function Env\env;
 
 /**
  * Disable plugins based on environment.
@@ -11,7 +12,7 @@ class DisabledPlugins {
 
 	function __construct() {
 		
-		if(getenv('WP_ENV') != 'development' || defined('DISABLED_PLUGINS')) return;
+		if(env('WP_ENV') != 'development' || defined('DISABLED_PLUGINS')) return;
 		
 		Config::define('DISABLED_PLUGINS', [
 			'google-analytics-for-wordpress/googleanalytics.php',
