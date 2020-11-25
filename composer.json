@@ -6,7 +6,9 @@
     "license": "MIT",
     "require": {
         "composer/installers": "~1.0",
-        "roots/wp-config": "^1.0"
+        "roots/wp-config": "^1.0",
+        "oscarotero/env": "^2.1"
+
     },
     "authors": [
         {
