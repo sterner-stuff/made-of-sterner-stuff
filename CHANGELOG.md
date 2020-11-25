@@ -1,3 +1,6 @@
+## [9.0.0] - 2020-11-25
+- Require oscarotero/env and version constraint
+
 ## [8.1.1] - 2020-08-17
 ### New
 - Add MAILGUN_FROM_ADDRESS env configuration
