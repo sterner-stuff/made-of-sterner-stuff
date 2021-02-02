@@ -1,3 +1,7 @@
+## [9.1.0] - 2021-02-02
+- Add Jetpack staging/offline support
+- Add Mailhog support, default to Mailhog
+
 ## [9.0.1] - 2020-11-25
 - Update remaining env calls
 
