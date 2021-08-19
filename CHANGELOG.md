@@ -1,3 +1,6 @@
+## [9.2.0] - 2021-08-19
+- Add Cloudflare support.
+
 ## [9.1.0] - 2021-02-02
 - Add Jetpack staging/offline support
 - Add Mailhog support, default to Mailhog
