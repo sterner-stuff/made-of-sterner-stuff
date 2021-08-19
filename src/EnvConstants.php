@@ -75,6 +75,13 @@ class EnvConstants {
 		Config::define('WP_ROCKET_EMAIL', env('WP_ROCKET_EMAIL') ?? null);
 		Config::define('WP_ROCKET_KEY', env('WP_ROCKET_KEY') ?? null);
 
+        /**
+         * Cloudflare
+         */
+		Config::define('CLOUDFLARE_EMAIL', env('CLOUDFLARE_EMAIL') ?? null);
+		Config::define('CLOUDFLARE_API_KEY', env('CLOUDFLARE_API_KEY') ?? null);
+		Config::define('CLOUDFLARE_DOMAIN_NAME', env('CLOUDFLARE_DOMAIN_NAME') ?? Config::get('WP_HOME'));
+
 		/**
 		 * Apply new constants
 		 */

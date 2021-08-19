@@ -3,17 +3,21 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 9.1.0
+Version: 9.2.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
 
+use function Env\env;
+use SternerStuffWordPress\DisableRedisProAds;
 use SternerStuffWordPress\DisableTracking;
+use SternerStuffWordPress\EditingExperience;
 use SternerStuffWordPress\JetpackModes;
+use SternerStuffWordPress\Mailtrap;
+use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
 use SternerStuffWordPress\WooCommerceSandbox;
 use SternerStuffWordPress\WPRocket;
-use function Env\env;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
@@ -22,12 +26,6 @@ class SternerStuffWordPress {
 	private static $self = false;
 
 	function __construct() {
-
-		new SternerStuffWordPress\EditingExperience;
-
-		new SternerStuffWordPress\Permissions;
-
-		new SternerStuffWordPress\Mailtrap;
 
 		new SternerStuffWordPress\GravityFormsCaptcha;
 
@@ -39,15 +37,14 @@ class SternerStuffWordPress {
 
 		$manager = new PluginAPIManager();
 
-		$plugin = new WooCommerceSandbox();
-		$manager->register($plugin);
-
-		$plugin = new DisableTracking();
-		$manager->register($plugin);
-
-		$plugin = new WPRocket();
-        $manager->register($plugin);
+        $manager->register( new EditingExperience() );
+        $manager->register( new Permissions() );
+        $manager->register( new Mailtrap() );
+		$manager->register( new WooCommerceSandbox() );
+		$manager->register( new DisableTracking() );
+        $manager->register( new WPRocket() );
         $manager->register( new JetpackModes() );
+        $manager->register( new DisableRedisProAds() );
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
 			$this->whitelistActiveProxies();
