@@ -1,6 +1,6 @@
 <?php
 
-namespace SternerStuffWordPress;
+namespace SternerStuffWordPress\WooCommerce;
 
 use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
 use function Env\env;

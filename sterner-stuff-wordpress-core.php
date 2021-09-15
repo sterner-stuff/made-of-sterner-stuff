@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 9.2.0
+Version: 9.3.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -16,7 +16,8 @@ use SternerStuffWordPress\JetpackModes;
 use SternerStuffWordPress\Mailtrap;
 use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
-use SternerStuffWordPress\WooCommerceSandbox;
+use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
+use SternerStuffWordPress\WordPress\SiteHealthChecks;
 use SternerStuffWordPress\WPRocket;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -45,6 +46,7 @@ class SternerStuffWordPress {
         $manager->register( new WPRocket() );
         $manager->register( new JetpackModes() );
         $manager->register( new DisableRedisProAds() );
+        $manager->register( new SiteHealthChecks() );
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
 			$this->whitelistActiveProxies();
