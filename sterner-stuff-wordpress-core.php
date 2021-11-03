@@ -16,6 +16,7 @@ use SternerStuffWordPress\JetpackModes;
 use SternerStuffWordPress\Mailtrap;
 use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
+use SternerStuffWordPress\PreservedOptions;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
 use SternerStuffWordPress\WordPress\SiteHealthChecks;
 use SternerStuffWordPress\WPRocket;
@@ -47,6 +48,7 @@ class SternerStuffWordPress {
         $manager->register( new JetpackModes() );
         $manager->register( new DisableRedisProAds() );
         $manager->register( new SiteHealthChecks() );
+        $manager->register( new PreservedOptions() );
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
 			$this->whitelistActiveProxies();

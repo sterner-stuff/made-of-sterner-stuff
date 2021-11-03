@@ -59,24 +59,6 @@ class EnvConstants {
 		endif;
 
 		/**
-		 * Configure Mailgun
-		 */
-		Config::define('MAILGUN_USEAPI', env('MAILGUN_USEAPI') ?? true);
-		Config::define('MAILGUN_REGION', env('MAILGUN_REGION') ?? 'us');
-
-		if(env('MAILGUN_APIKEY')):
-			Config::define('MAILGUN_APIKEY', env('MAILGUN_APIKEY'));
-		endif;
-
-		if(env('MAILGUN_DOMAIN')):
-			Config::define('MAILGUN_DOMAIN', env('MAILGUN_DOMAIN'));
-		endif;
-
-		if(env('MAILGUN_FROM_ADDRESS')):
-			Config::define('MAILGUN_FROM_ADDRESS', env('MAILGUN_FROM_ADDRESS'));
-		endif;
-
-		/**
 		 * WP-Rocket
 		 */
 		Config::define('WP_ROCKET_EMAIL', env('WP_ROCKET_EMAIL') ?? null);
