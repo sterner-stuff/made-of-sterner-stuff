@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 9.3.0
+Version: 9.3.1
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -50,7 +50,9 @@ class SternerStuffWordPress {
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
 			$this->whitelistActiveProxies();
-		}		
+		}
+
+		add_filter( 'xmlrpc_enabled', '__return_false' );
 	}
 
 	public function whitelistActiveProxies() {
