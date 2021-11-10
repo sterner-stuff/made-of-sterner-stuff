@@ -1,3 +1,7 @@
+## [10.0.0] - 2021-11-10
+- Add support for ACF_PRO_LICENSE
+- Disable xmlrpc.php by default
+
 ## [9.2.0] - 2021-08-19
 - Add Cloudflare support.
 

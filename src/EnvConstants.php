@@ -52,6 +52,13 @@ class EnvConstants {
 		endif;
 
 		/**
+		 * Configure ACF key
+		 */
+		if(env('ACF_PRO_LICENSE')):
+			Config::define('ACF_PRO_LICENSE', env('ACF_PRO_LICENSE'));
+		endif;
+
+		/**
 		 * Configure Mailgun
 		 */
 		Config::define('MAILGUN_USEAPI', env('MAILGUN_USEAPI') ?? true);
