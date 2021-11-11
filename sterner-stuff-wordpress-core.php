@@ -9,6 +9,8 @@ Author URI: https://sternerstuff.dev
 */
 
 use function Env\env;
+
+use SternerStuffWordPress\Cli\Deploy;
 use SternerStuffWordPress\DisableRedisProAds;
 use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\EditingExperience;
@@ -49,6 +51,8 @@ class SternerStuffWordPress {
         $manager->register( new DisableRedisProAds() );
         $manager->register( new SiteHealthChecks() );
         $manager->register( new PreservedOptions() );
+
+		Deploy::register();
 
 		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
 			$this->whitelistActiveProxies();
