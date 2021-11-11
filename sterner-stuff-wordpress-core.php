@@ -16,7 +16,7 @@ use SternerStuffWordPress\JetpackModes;
 use SternerStuffWordPress\Mailtrap;
 use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
-use SternerStuffWordPress\PreservedOptions;
+use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
 use SternerStuffWordPress\WordPress\SiteHealthChecks;
 use SternerStuffWordPress\WPRocket;
