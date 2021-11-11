@@ -1,6 +1,6 @@
 <?php 
 
-namespace SternerStuffWordPress;
+namespace SternerStuffWordPress\WPMigrateDBPro;
 
 use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
 
