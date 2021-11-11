@@ -17,8 +17,10 @@ class Deploy extends Command
 		// Move to Bedrock's root
 		// chdir(WP_CONTENT_DIR . '../..');
 
-		// Reset to the master branch.
-		exec('git reset origin master');
+		$git_branch = trim(exec('git rev-parse --abbrev-ref HEAD'));
+
+		// Pull branch.
+		exec("git pull origin $git_branch");
 
 		// Install dependencies.
 		exec('composer install --no-interaction --prefer-dist --optimize-autoloader');
