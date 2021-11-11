@@ -4,7 +4,7 @@ namespace SternerStuffWordPress\Cli;
 
 abstract class Command {
 
-	public $slug;
+	public $name;
 
 	/**
 	 * Optional args
@@ -21,7 +21,7 @@ abstract class Command {
 
 	public static function register() {
 		$instance = new static;
-		\WP_CLI::add_command( $instance->slug, $instance, $instance->args ?? null );
+		\WP_CLI::add_command( $instance->name, $instance, $instance->args ?? null );
 	}
 
 }
