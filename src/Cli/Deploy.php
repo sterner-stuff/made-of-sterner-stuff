@@ -2,6 +2,8 @@
 
 namespace SternerStuffWordPress\Cli;
 
+use WP_CLI;
+
 class Deploy extends Command
 {
 
@@ -22,29 +24,29 @@ class Deploy extends Command
 		exec('composer install --no-interaction --prefer-dist --optimize-autoloader');
 
 		// Flush the object cache
-		WP_CLI::runcommand('wp cache flush');
+		WP_CLI::runcommand('cache flush');
 
 		// Update the core database
-		WP_CLI::runcommand('wp core update-db');
+		WP_CLI::runcommand('core update-db');
 
 		// Maybe update WooCommerce database
 		if(is_plugin_active('woocommerce/woocommerce.php')) {
-			WP_CLI::runcommand('wp wc update');
+			WP_CLI::runcommand('wc update');
 		}
 
 		// Maybe update Redirection database
 		if(is_plugin_active('redirection/redirection.php')) {
-			WP_CLI::runcommand('wp redirection database upgrade');
+			WP_CLI::runcommand('redirection database upgrade');
 		}
 
 		// Maybe flush WP-Rocket, also handles Kinsta
 		if(is_plugin_active('wp-rocket/wp-rocket.php')) {
-			WP_CLI::runcommand('wp rocket clean --confim');
+			WP_CLI::runcommand('rocket clean --confirm');
 		}
 
 		// Maybe flush Cloudflare
 		if(is_plugin_active('cloudflare/cloudflare.php')) {
-			WP_CLI::runcommand('wp cloudflare cache_purge');
+			WP_CLI::runcommand('cloudflare cache_purge');
 		}
 
 	}
