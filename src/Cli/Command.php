@@ -20,6 +20,9 @@ abstract class Command {
 	 */
 
 	public static function register() {
+		if(!class_exists('WP_CLI')) {
+			return;
+		}
 		$instance = new static;
 		\WP_CLI::add_command( $instance->name, $instance, $instance->args ?? null );
 	}
