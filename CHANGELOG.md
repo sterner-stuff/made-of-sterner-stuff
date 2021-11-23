@@ -1,3 +1,7 @@
+## [10.1.0] - 2021-11-23
+- Add deploy command
+- Better mailer management
+
 ## [10.0.0] - 2021-11-10
 - Add support for ACF_PRO_LICENSE
 - Disable xmlrpc.php by default
