@@ -16,11 +16,12 @@ use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\EditingExperience;
 use SternerStuffWordPress\JetpackModes;
 use SternerStuffWordPress\Mailtrap;
+use SternerStuffWordPress\MaintenanceMode;
 use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
-use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
 use SternerStuffWordPress\WordPress\SiteHealthChecks;
+use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
 use SternerStuffWordPress\WPRocket;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
