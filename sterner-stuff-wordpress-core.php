@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 10.1.1
+Version: 10.2.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -31,15 +31,19 @@ class SternerStuffWordPress {
 
 	function __construct() {
 
+		SternerStuffWordPress\EnvConstants::define();
+
+		$manager = new PluginAPIManager();
+
+		if(getenv('MAINTENANCE_MODE_ENABLED')) {
+			$manager->register( new MaintenanceMode() );
+		}
+
 		new SternerStuffWordPress\GravityFormsCaptcha;
 
 		new SternerStuffWordPress\LimitRevisions();
 
 		new SternerStuffWordPress\DisabledPlugins();
-
-		SternerStuffWordPress\EnvConstants::define();
-
-		$manager = new PluginAPIManager();
 
         $manager->register( new EditingExperience() );
         $manager->register( new Permissions() );
