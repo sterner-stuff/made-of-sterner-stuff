@@ -1,7 +1,5 @@
-## [10.2.0] - 2021-11-23
+## [10.2.0] - 2021-12-07
 - Disable admin email check
-
-## [10.1.1] - 2021-11-23
 - Add MAINTENANCE_MODE_ENABLED and related features
 
 ## [10.1.1] - 2021-11-23
