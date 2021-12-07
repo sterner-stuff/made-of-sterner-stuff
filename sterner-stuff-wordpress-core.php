@@ -16,12 +16,13 @@ use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\EditingExperience;
 use SternerStuffWordPress\JetpackModes;
 use SternerStuffWordPress\Mailtrap;
+use SternerStuffWordPress\MaintenanceMode;
 use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
-use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
 use SternerStuffWordPress\WordPress\DisableAdminEmailCheck;
 use SternerStuffWordPress\WordPress\SiteHealthChecks;
+use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
 use SternerStuffWordPress\WPRocket;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -32,15 +33,19 @@ class SternerStuffWordPress {
 
 	function __construct() {
 
+		SternerStuffWordPress\EnvConstants::define();
+
+		$manager = new PluginAPIManager();
+
+		if(getenv('MAINTENANCE_MODE_ENABLED')) {
+			$manager->register( new MaintenanceMode() );
+		}
+
 		new SternerStuffWordPress\GravityFormsCaptcha;
 
 		new SternerStuffWordPress\LimitRevisions();
 
 		new SternerStuffWordPress\DisabledPlugins();
-
-		SternerStuffWordPress\EnvConstants::define();
-
-		$manager = new PluginAPIManager();
 
         $manager->register( new EditingExperience() );
         $manager->register( new Permissions() );

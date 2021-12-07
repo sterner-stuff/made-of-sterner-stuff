@@ -2,6 +2,9 @@
 - Disable admin email check
 
 ## [10.1.1] - 2021-11-23
+- Add MAINTENANCE_MODE_ENABLED and related features
+
+## [10.1.1] - 2021-11-23
 - Fix WP_CLI class error
 
 ## [10.1.0] - 2021-11-23
