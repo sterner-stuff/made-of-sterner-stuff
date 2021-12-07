@@ -1,3 +1,6 @@
+## [10.2.0] - 2021-11-23
+- Disable admin email check
+
 ## [10.1.1] - 2021-11-23
 - Fix WP_CLI class error
 

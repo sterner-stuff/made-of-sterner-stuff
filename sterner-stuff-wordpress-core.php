@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 10.1.1
+Version: 10.2.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -20,6 +20,7 @@ use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
 use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
+use SternerStuffWordPress\WordPress\DisableAdminEmailCheck;
 use SternerStuffWordPress\WordPress\SiteHealthChecks;
 use SternerStuffWordPress\WPRocket;
 
@@ -51,6 +52,7 @@ class SternerStuffWordPress {
         $manager->register( new DisableRedisProAds() );
         $manager->register( new SiteHealthChecks() );
         $manager->register( new PreservedOptions() );
+        $manager->register( new DisableAdminEmailCheck() );
 
 		Deploy::register();
 
