@@ -20,7 +20,7 @@ class PreservedOptions implements FilterHookSubscriber {
         ];
     }
 
-    public function preserved_options( $options )
+    public function wpmdb_preserved_options( $options )
     {
         return array_merge($this->preserved_options, $options);
     }

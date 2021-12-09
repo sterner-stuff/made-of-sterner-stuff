@@ -1,3 +1,6 @@
+## [10.2.1] - 2021-12-09
+- Fix fatal error w/ WP Migrate DB Pro preserved options
+
 ## [10.2.0] - 2021-12-07
 - Disable admin email check
 - Add MAINTENANCE_MODE_ENABLED and related features
