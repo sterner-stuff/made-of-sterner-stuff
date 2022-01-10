@@ -1,3 +1,6 @@
+## [10.3.0] - 2022-01-10
+- Add default support for Bedrock to Kinsta's CDN configuration
+
 ## [10.2.1] - 2021-12-09
 - Fix fatal error w/ WP Migrate DB Pro preserved options
 
