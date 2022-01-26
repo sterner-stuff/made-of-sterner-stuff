@@ -1,6 +1,6 @@
 <?php
 
-namespace SternerStuffWordPress;
+namespace SternerStuffWordPress\WordPress;
 
 use function Env\env;
 
@@ -11,7 +11,7 @@ use SternerStuffWordPress\Interfaces\ActionHookSubscriber;
  * If Mailtrap variables are set and it's on the development environment,
  * use Mailtrap for emails
  */
-class Mailtrap implements ActionHookSubscriber {
+class Mailers implements ActionHookSubscriber {
 
     public static function get_actions() 
     {
@@ -28,7 +28,11 @@ class Mailtrap implements ActionHookSubscriber {
             if(env('WP_ENV') != 'production') {
                 $mailer = 'mailhog';
             } else {
-                $mailer = 'mailgun';
+                if (env('POSTMARK_API_KEY')) {
+                    $mailer = 'postmark';
+                } else {
+                    $mailer = 'mailgun';
+                }
             }
         }
         
@@ -41,8 +45,11 @@ class Mailtrap implements ActionHookSubscriber {
                 add_action('phpmailer_init', [$this, 'enable_mailhog']);
                 break;
             case 'mailgun':
-            default:
                 $this->enable_mailgun();
+                break;
+            case 'postmark':
+            default:
+                $this->enable_postmark();
                 break;
         }
     }
@@ -87,6 +94,35 @@ class Mailtrap implements ActionHookSubscriber {
 		if(env('MAILGUN_FROM_ADDRESS')):
 			Config::define('MAILGUN_FROM_ADDRESS', env('MAILGUN_FROM_ADDRESS'));
 		endif;
+
+        Config::apply();
+    }
+
+    /**
+     * Configure Postmark
+     */
+    public function enable_postmark()
+    {
+        if (env('POSTMARK_API_KEY')) :
+            Config::define('POSTMARK_API_KEY', env('POSTMARK_API_KEY'));
+
+            // Enable Postmark if API key is set
+            add_filter('option_postmark_settings', function ($settings) {
+                $settings = json_decode($settings, true);
+
+                $settings['enabled'] = true;
+
+                return json_encode($settings);
+            });
+        endif;
+
+        if (env('POSTMARK_STREAM_NAME')) :
+            Config::define('POSTMARK_STREAM_NAME', env('POSTMARK_STREAM_NAME'));
+        endif;
+
+        if (env('POSTMARK_SENDER_ADDRESS')) :
+            Config::define('POSTMARK_SENDER_ADDRESS', env('POSTMARK_SENDER_ADDRESS'));
+        endif;
 
         Config::apply();
     }

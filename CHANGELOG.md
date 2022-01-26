@@ -1,3 +1,6 @@
+## [10.4.0] - 2022-01-26
+- Add Postmark support
+
 ## [10.3.0] - 2022-01-10
 - Add default support for Bedrock to Kinsta's CDN configuration
 
