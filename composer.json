@@ -5,7 +5,7 @@
     "homepage": "https://sternerstuff.dev",
     "license": "MIT",
     "require": {
-        "composer/installers": "~1.0",
+        "composer/installers": "~1.0 | ~2.0",
         "roots/wp-config": "^1.0",
         "oscarotero/env": "^2.1"
 
@@ -26,5 +26,10 @@
     ],
     "autoload": {
         "psr-4": {"SternerStuffWordPress\\": "src/"}
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }
