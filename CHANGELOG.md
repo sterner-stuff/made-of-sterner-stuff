@@ -1,5 +1,8 @@
-## [10.5.0] - 2022-03-15
+## [11.0.0] - 2022-03-15
 - Add Postmark support
+- Remove Kinsta CDN customization
+- Remove wpFail2ban logic
+- Refactor classes to use filter/action interfaces
 
 ## [10.4.0] - 2022-01-10
 - Declare support for composer/installers 2.0

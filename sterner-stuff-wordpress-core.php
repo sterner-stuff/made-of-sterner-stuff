@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 10.5.0
+Version: 11.0.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -14,7 +14,9 @@ use SternerStuffWordPress\Cli\Deploy;
 use SternerStuffWordPress\DisableRedisProAds;
 use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\EditingExperience;
+use SternerStuffWordPress\GravityFormsCaptcha;
 use SternerStuffWordPress\JetpackModes;
+use SternerStuffWordPress\LimitRevisions;
 use SternerStuffWordPress\MaintenanceMode;
 use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
@@ -37,13 +39,9 @@ class SternerStuffWordPress {
 
 		$manager = new PluginAPIManager();
 
-		if(getenv('MAINTENANCE_MODE_ENABLED')) {
+		if(env('MAINTENANCE_MODE_ENABLED')) {
 			$manager->register( new MaintenanceMode() );
 		}
-
-		new SternerStuffWordPress\GravityFormsCaptcha;
-
-		new SternerStuffWordPress\LimitRevisions();
 
 		new SternerStuffWordPress\DisabledPlugins();
 
@@ -58,27 +56,12 @@ class SternerStuffWordPress {
         $manager->register( new SiteHealthChecks() );
         $manager->register( new PreservedOptions() );
         $manager->register( new DisableAdminEmailCheck() );
+		$manager->register(new LimitRevisions());
+		$manager->register(new GravityFormsCaptcha());
 
 		Deploy::register();
 
-		if( is_plugin_active( 'wp-fail2ban/wp-fail2ban.php' ) ) {
-			$this->whitelistActiveProxies();
-		}
-
 		add_filter( 'xmlrpc_enabled', '__return_false' );
-	}
-
-	public function whitelistActiveProxies() {
-		/**
-		 * Only one proxy whitelist should be defined at a time
-		 * Otherwise you'll get constant re-defined warnings
-		 */
-		if( env('CLOUDFLARE_ENABLED') ) {
-			new SternerStuffWordPress\CloudflareIps;
-		}
-		if( env('FASTLY_ENABLED') ) {
-			new SternerStuffWordPress\FastlyIps;
-		}
 	}
 
 	// Keep this method at the bottom of the class
