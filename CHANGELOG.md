@@ -1,5 +1,8 @@
-## [10.4.0] - 2022-01-26
+## [10.5.0] - 2022-03-15
 - Add Postmark support
+
+## [10.4.0] - 2022-01-10
+- Declare support for composer/installers 2.0
 
 ## [10.3.0] - 2022-01-10
 - Add default support for Bedrock to Kinsta's CDN configuration
