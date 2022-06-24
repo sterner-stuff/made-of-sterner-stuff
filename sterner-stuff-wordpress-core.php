@@ -10,7 +10,7 @@ Author URI: https://sternerstuff.dev
 
 use function Env\env;
 
-use SternerStuffWordPress\Cli\Deploy;
+use SternerStuffWordPress\Commands\Deploy;
 use SternerStuffWordPress\DisableRedisProAds;
 use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\EditingExperience;

@@ -1,6 +1,6 @@
 <?php 
 
-namespace SternerStuffWordPress\Cli;
+namespace SternerStuffWordPress\Commands;
 
 abstract class Command {
 
