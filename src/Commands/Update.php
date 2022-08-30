@@ -33,9 +33,9 @@ class Update extends Command {
 
 		if ($this->old_core != $this->new_core) {
 			$this->updateInfo[] = [
-				'WordPress [core]',
-				$this->old_core,
-				$this->new_core,
+				'Item' => 'WordPress [core]',
+				'Old Version' => $this->old_core,
+				'New Version' => $this->new_core,
 			];
 		}
 

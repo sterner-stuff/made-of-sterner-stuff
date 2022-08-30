@@ -1,3 +1,6 @@
+## [11.0.1] - 2022-08-30
+- Fix bug in update command when updating core
+
 ## [11.0.0] - 2022-03-15
 - Add Postmark support
 - Remove Kinsta CDN customization
