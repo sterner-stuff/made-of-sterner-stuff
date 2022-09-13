@@ -8,7 +8,6 @@
         "composer/installers": "~1.0 | ~2.0",
         "roots/wp-config": "^1.0",
         "oscarotero/env": "^2.1"
-
     },
     "authors": [
         {
@@ -31,5 +30,8 @@
         "allow-plugins": {
             "composer/installers": true
         }
+    },
+    "require-dev": {
+        "php-stubs/wp-cli-stubs": "^2.6"
     }
 }

@@ -1,3 +1,7 @@
+## [11.1.0] - 2022-09-13
+- Register `update` command
+- Add WP-CLI stubs
+
 ## [11.0.1] - 2022-08-30
 - Fix bug in update command when updating core
 

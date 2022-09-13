@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 11.0.3
+Version: 11.1.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -11,6 +11,7 @@ Author URI: https://sternerstuff.dev
 use function Env\env;
 
 use SternerStuffWordPress\Commands\Deploy;
+use SternerStuffWordPress\Commands\Update;
 use SternerStuffWordPress\DisableRedisProAds;
 use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\EditingExperience;
@@ -30,40 +31,43 @@ use SternerStuffWordPress\WPRocket;
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 class SternerStuffWordPress {
-
+	
 	private static $self = false;
-
+	
 	function __construct() {
-
+		
 		SternerStuffWordPress\EnvConstants::define();
-
+		
 		$manager = new PluginAPIManager();
-
+		
 		if(env('MAINTENANCE_MODE_ENABLED')) {
 			$manager->register( new MaintenanceMode() );
 		}
-
+		
 		new SternerStuffWordPress\DisabledPlugins();
-
-        $manager->register( new EditingExperience() );
-        $manager->register( new Permissions() );
-        $manager->register( new Mailers() );
+		
+		$manager->register( new EditingExperience() );
+		$manager->register( new Permissions() );
+		$manager->register( new Mailers() );
 		$manager->register( new WooCommerceSandbox() );
 		$manager->register( new DisableTracking() );
-        $manager->register( new WPRocket() );
-        $manager->register( new JetpackModes() );
-        $manager->register( new DisableRedisProAds() );
-        $manager->register( new SiteHealthChecks() );
-        $manager->register( new PreservedOptions() );
-        $manager->register( new DisableAdminEmailCheck() );
+		$manager->register( new WPRocket() );
+		$manager->register( new JetpackModes() );
+		$manager->register( new DisableRedisProAds() );
+		$manager->register( new SiteHealthChecks() );
+		$manager->register( new PreservedOptions() );
+		$manager->register( new DisableAdminEmailCheck() );
 		$manager->register(new LimitRevisions());
 		$manager->register(new GravityFormsCaptcha());
-
-		Deploy::register();
-
+		
+		if(defined( 'WP_CLI' ) && constant('WP_CLI')) {
+			Deploy::register();
+			Update::register();
+		}
+		
 		add_filter( 'xmlrpc_enabled', '__return_false' );
 	}
-
+	
 	// Keep this method at the bottom of the class
 	public static function getInstance() {
 		if(!self::$self) {
