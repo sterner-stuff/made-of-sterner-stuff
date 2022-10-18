@@ -12,8 +12,18 @@ class Update extends Command {
 
 	/**
 	 * Update dependencies and spit out a table.
+	 * 
+	 * ## OPTIONS
+	 * 
+	 * [--format=<format>]
+	 * : The format for command output.
+	 * ---
+	 * default: table
+	 * options:
+	 * 	- table
+	 * 	- json
 	 */
-	public function __invoke() {
+	public function __invoke( $args, $assoc_args ) {
 
 		if (!$this->isWordPress()) {
 			WP_CLI::error('This command can only be run in a WordPress environment.');
@@ -42,8 +52,15 @@ class Update extends Command {
 		$this->updateInfo = array_merge($this->updateInfo, $this->diffPlugins() ?: []);
 		$this->updateInfo = array_merge($this->updateInfo, $this->diffThemes() ?: []);
 
-		\WP_CLI\Utils\format_items('table', $this->updateInfo, ['Item', 'Old Version', 'New Version']);
-
+		switch($assoc_args['format']):
+			case 'json':
+				$this->outputJson();
+				break;
+			case 'table':
+			default:
+				\WP_CLI\Utils\format_items('table', $this->updateInfo, ['Item', 'Old Version', 'New Version']);
+				break;
+		endswitch;
 	}
 
 	private function updateComposer() {
@@ -114,6 +131,11 @@ class Update extends Command {
 
 	public function isWordPress() {
 		return false !== WP_CLI::runcommand('core is-installed');
+	}
+
+	private function outputJson()
+	{
+		echo json_encode($this->updateInfo);
 	}
 
 	private function diff($oldThings, $newThings, $type = false) {

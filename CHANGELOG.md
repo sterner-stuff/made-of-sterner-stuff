@@ -1,3 +1,6 @@
+## [11.2.0] - 2022-10-18
+- Add support for returning update information as JSON
+
 ## [11.1.0] - 2022-09-13
 - Register `update` command
 - Add WP-CLI stubs
