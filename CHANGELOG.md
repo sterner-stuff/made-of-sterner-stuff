@@ -1,3 +1,6 @@
+## [11.3.0] - 2022-11-09
+- Add sync-db command to pull from WP-CLI aliased environment
+
 ## [11.2.0] - 2022-10-18
 - Add support for returning update information as JSON
 
