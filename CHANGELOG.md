@@ -1,3 +1,6 @@
+## [11.3.1] - 2022-12-15
+- Define Kinsta mu-plugin URL
+
 ## [11.3.0] - 2022-11-09
 - Add sync-db command to pull from WP-CLI aliased environment
 

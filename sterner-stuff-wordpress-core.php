@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 11.3.0
+Version: 11.3.1
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -68,6 +68,7 @@ class SternerStuffWordPress {
 		}
 		
 		add_filter( 'xmlrpc_enabled', '__return_false' );
+		define('KINSTAMU_CUSTOM_MUPLUGIN_URL', WPMU_PLUGIN_URL . '/kinsta-mu-plugins/');
 	}
 	
 	// Keep this method at the bottom of the class
