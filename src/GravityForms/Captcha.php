@@ -1,6 +1,6 @@
 <?php
 
-namespace SternerStuffWordPress;
+namespace SternerStuffWordPress\GravityForms;
 
 use SternerStuffWordPress\Interfaces\ActionHookSubscriber;
 use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
@@ -9,7 +9,7 @@ use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
  * Hide Gravity Forms Captcha label and the Captcha badge
  * Adhere to Google ToS for hiding Captcha badge
  */
-class GravityFormsCaptcha implements FilterHookSubscriber, ActionHookSubscriber {
+class Captcha implements FilterHookSubscriber, ActionHookSubscriber {
 
 	public static function get_filters() { 
 		return [
