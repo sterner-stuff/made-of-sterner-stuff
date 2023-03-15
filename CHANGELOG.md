@@ -1,5 +1,6 @@
 ## [11.4.0] - 2023-01-13
 - Disable Gravity Forms update messages and background updates
+- Flush Kinsta cache rather than WP-Rocket when present
 
 ## [11.3.1] - 2022-12-15
 - Define Kinsta mu-plugin URL
