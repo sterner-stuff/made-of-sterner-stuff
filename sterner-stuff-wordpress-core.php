@@ -3,12 +3,12 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 11.3.1
+Version: 11.4.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
 
-use function Env\env;
+use Env\Env;
 
 use SternerStuffWordPress\Commands\Deploy;
 use SternerStuffWordPress\Commands\SyncDB;
@@ -16,7 +16,8 @@ use SternerStuffWordPress\Commands\Update;
 use SternerStuffWordPress\DisableRedisProAds;
 use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\EditingExperience;
-use SternerStuffWordPress\GravityFormsCaptcha;
+use SternerStuffWordPress\GravityForms\Captcha;
+use SternerStuffWordPress\GravityForms\HideUpdateMessages;
 use SternerStuffWordPress\JetpackModes;
 use SternerStuffWordPress\LimitRevisions;
 use SternerStuffWordPress\MaintenanceMode;
@@ -41,7 +42,7 @@ class SternerStuffWordPress {
 		
 		$manager = new PluginAPIManager();
 		
-		if(env('MAINTENANCE_MODE_ENABLED')) {
+		if(Env::get('MAINTENANCE_MODE_ENABLED')) {
 			$manager->register( new MaintenanceMode() );
 		}
 		
@@ -59,7 +60,8 @@ class SternerStuffWordPress {
 		$manager->register( new PreservedOptions() );
 		$manager->register( new DisableAdminEmailCheck() );
 		$manager->register( new LimitRevisions() );
-		$manager->register( new GravityFormsCaptcha() );
+		$manager->register( new Captcha() );
+		$manager->register( new HideUpdateMessages() );
 		
 		if(defined( 'WP_CLI' ) && constant('WP_CLI')) {
 			Deploy::register();

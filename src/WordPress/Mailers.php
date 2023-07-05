@@ -8,8 +8,8 @@ use Roots\WPConfig\Config;
 use SternerStuffWordPress\Interfaces\ActionHookSubscriber;
 
 /**
- * If Mailtrap variables are set and it's on the development environment,
- * use Mailtrap for emails
+ * If Mailhog variables are set and it's on the development environment,
+ * use Mailhog for emails
  */
 class Mailers implements ActionHookSubscriber
 {
@@ -25,47 +25,28 @@ class Mailers implements ActionHookSubscriber
 	{
 		$mailer = env('MAIL_MAILER');
 
-		if (!$mailer) {
-			if (env('WP_ENV') != 'production') {
-				$mailer = 'mailhog';
-			} else {
-				if (env('POSTMARK_API_KEY')) {
-					$mailer = 'postmark';
-				} else {
-					$mailer = 'mailgun';
-				}
+		if (!$mailer && defined('WP_ENV') && \WP_ENV === 'production') {
+			if (env('MAILGUN_APIKEY')) {
+				$mailer = 'mailgun';
+			} else if (env('POSTMARK_API_KEY')) {
+				$mailer = 'postmark';
 			}
 		}
 
 
 		switch ($mailer) {
-			case 'mailtrap':
-				add_action('phpmailer_init', [$this, 'enable_mailtrap']);
-				break;
 			case 'mailhog':
 				add_action('phpmailer_init', [$this, 'enable_mailhog']);
+				break;			
+			case 'postmark':
+				$this->enable_postmark();
 				break;
 			case 'mailgun':
 				$this->enable_mailgun();
 				break;
-			case 'postmark':
 			default:
-				$this->enable_postmark();
 				break;
 		}
-	}
-
-	public function enable_mailtrap($phpmailer)
-	{
-		if (!env('MAILTRAP_USER') || !env('MAILTRAP_PASSWORD')) {
-			return;
-		}
-		$phpmailer->isSMTP();
-		$phpmailer->Host = 'smtp.mailtrap.io';
-		$phpmailer->SMTPAuth = true;
-		$phpmailer->Port = 2525;
-		$phpmailer->Username = env('MAILTRAP_USER');
-		$phpmailer->Password = env('MAILTRAP_PASSWORD');
 	}
 
 	public function enable_mailhog($phpmailer)
