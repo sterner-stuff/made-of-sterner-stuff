@@ -25,7 +25,7 @@ class Mailers implements ActionHookSubscriber
 	{
 		$mailer = env('MAIL_MAILER');
 
-		if (!$mailer) {
+		if (!$mailer && defined('WP_ENV') && \WP_ENV === 'production') {
 			if (env('MAILGUN_APIKEY')) {
 				$mailer = 'mailgun';
 			} else if (env('POSTMARK_API_KEY')) {
@@ -42,8 +42,9 @@ class Mailers implements ActionHookSubscriber
 				$this->enable_postmark();
 				break;
 			case 'mailgun':
-			default:
 				$this->enable_mailgun();
+				break;
+			default:
 				break;
 		}
 	}
