@@ -26,14 +26,10 @@ class Mailers implements ActionHookSubscriber
 		$mailer = env('MAIL_MAILER');
 
 		if (!$mailer) {
-			if (env('WP_ENV') == 'development') {
-				$mailer = 'mailhog';
-			} else {
-				if (env('POSTMARK_API_KEY')) {
-					$mailer = 'postmark';
-				} else {
-					$mailer = 'mailgun';
-				}
+			if (env('MAILGUN_APIKEY')) {
+				$mailer = 'mailgun';
+			} else if (env('POSTMARK_API_KEY')) {
+				$mailer = 'postmark';
 			}
 		}
 
