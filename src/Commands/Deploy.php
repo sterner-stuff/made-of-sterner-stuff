@@ -23,7 +23,7 @@ class Deploy extends Command
 		exec("git pull origin $git_branch");
 
 		// Install dependencies.
-		exec('composer install --no-ansi --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader');
+		exec('composer install --no-ansi --no-dev --no-interaction --no-progress --optimize-autoloader');
 
 		// Flush the object cache
 		WP_CLI::runcommand('cache flush');
