@@ -1,3 +1,6 @@
+## [11.4.1] - 2023-08-09
+- Run Composer scripts on deploy
+
 ## [11.4.0] - 2023-01-13
 - Disable Gravity Forms update messages and background updates
 - Flush Kinsta cache rather than WP-Rocket when present
