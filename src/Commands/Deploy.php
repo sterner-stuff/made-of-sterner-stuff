@@ -41,15 +41,13 @@ class Deploy extends Command
 			WP_CLI::runcommand('redirection database upgrade');
 		}
 
-		// Maybe flush Kinsta.
-		if(class_exists('Kinsta\KMP')) {
-			WP_CLI::runcommand('kinsta cache purge', ['exit_error' => false]);
-		}
-
-		// Maybe flush WP-Rocket.
-		// Note this will not impact the page cache if Kinsta is active, as Kinsta disables WP-Rocket's page cache.
+		// Maybe flush WP-Rocket, which will clear the Kinsta cache if both are installed.
 		if(is_plugin_active('wp-rocket/wp-rocket.php')) {
 			WP_CLI::runcommand('rocket clean --confirm');
+		}
+		// Otherwise, directly flush Kinsta if the plugin is active.
+		else if(class_exists('Kinsta\KMP')) {
+			WP_CLI::runcommand('kinsta cache purge --all', ['exit_error' => false]);
 		}
 
 		// Maybe flush Cloudflare
