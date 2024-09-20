@@ -2,17 +2,21 @@
 
 namespace SternerStuffWordPress\GravityForms;
 
-use SternerStuffWordPress\Interfaces\FilterHookSubscriber;
+use SternerStuffWordPress\Interfaces\ActionHookSubscriber;
 
 /**
  * Hide Gravity Forms update messages
  */
-class HideUpdateMessages implements FilterHookSubscriber {
+class HideUpdateMessages implements ActionHookSubscriber {
 
-	public static function get_filters() { 
+	public static function get_actions() { 
 		return [
-			'option_gf_env_hide_background_updates' => '__return_true',
-			'option_gf_env_hide_update_message' => '__return_true',
+			'admin_print_styles' => 'admin_print_styles',
 		];
+	}
+
+	public function admin_print_styles()
+	{
+		echo '<style>#gf_dashboard_message { display: none; }</style>';
 	}
 }
