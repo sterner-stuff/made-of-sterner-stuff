@@ -68,10 +68,12 @@ class Update extends Command {
 	}
 
 	private function updateThemes() {
+		$exclude = '--exclude=' . $this->getComposerPlugins();
+
 		if (WP_CLI::runcommand('theme list --update=available', [
 			'return' => true,
 		])) {
-			return WP_CLI::runcommand('theme update --all', [
+			return WP_CLI::runcommand('theme update --all ' . $exclude, [
 				'return' => true,
 				'exit_error' => false,
 			]);
@@ -82,10 +84,12 @@ class Update extends Command {
 	}
 
 	private function updatePlugins() {
+		$exclude = '--exclude=' . $this->getComposerPlugins();
+
 		if (WP_CLI::runcommand('plugin list --update=available', [
 			'return' => true,
 		])) {
-			return WP_CLI::runcommand('plugin update --all', [
+			return WP_CLI::runcommand('plugin update --all ' . $exclude, [
 				'return' => true,
 				'exit_error' => false,
 			]);
@@ -93,6 +97,22 @@ class Update extends Command {
 			WP_CLI::log('No plugins to update.');
 			return;
 		}
+	}
+
+	public function getComposerPlugins(){
+		$output = shell_exec('composer show --format=json');
+
+		$dependencies = json_decode($output, true);
+
+		$dependencyNames = [];
+		if (isset($dependencies['installed'])) {
+			foreach ($dependencies['installed'] as $dependency) {
+				$parts = explode('/', $dependency['name']);
+				$dependencyNames[] = end($parts);
+			}
+		}
+
+		return implode(',', $dependencyNames);
 	}
 
 	private function getPlugins() {
