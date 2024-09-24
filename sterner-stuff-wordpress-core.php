@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 11.5.0
+Version: 11.6.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -23,12 +23,14 @@ use SternerStuffWordPress\LimitRevisions;
 use SternerStuffWordPress\MaintenanceMode;
 use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
+use SternerStuffWordPress\TheEventsCalendar\AllowTroubleshooting;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
 use SternerStuffWordPress\WordPress\DisableAdminEmailCheck;
 use SternerStuffWordPress\WordPress\Mailers;
 use SternerStuffWordPress\WordPress\SiteHealthChecks;
 use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
 use SternerStuffWordPress\WPRocket;
+use SternerStuffWordPress\Yoast\DisableIndexingNotification;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
@@ -48,20 +50,34 @@ class SternerStuffWordPress {
 		
 		new SternerStuffWordPress\DisabledPlugins();
 		
-		$manager->register( new EditingExperience() );
-		$manager->register( new Permissions() );
-		$manager->register( new Mailers() );
-		$manager->register( new WooCommerceSandbox() );
-		$manager->register( new DisableTracking() );
-		$manager->register( new WPRocket() );
-		$manager->register( new JetpackModes() );
-		$manager->register( new DisableRedisProAds() );
-		$manager->register( new SiteHealthChecks() );
-		$manager->register( new PreservedOptions() );
+		// WordPress
 		$manager->register( new DisableAdminEmailCheck() );
-		$manager->register( new LimitRevisions() );
+		$manager->register( new Mailers() );
+		$manager->register( new SiteHealthChecks() );
+		
+		// WooCommerce
+		$manager->register( new WooCommerceSandbox() );
+		
+		// Gravity Forms
 		$manager->register( new Captcha() );
 		$manager->register( new HideUpdateMessages() );
+
+		// The Events Calendar
+		$manager->register( new AllowTroubleshooting() );
+
+		// Yoast
+		$manager->register( new DisableIndexingNotification() );
+		
+		// Other plugins
+		$manager->register( new WPRocket() );
+		$manager->register( new JetpackModes() );
+		$manager->register( new PreservedOptions() );
+		
+		$manager->register( new LimitRevisions() );
+		$manager->register( new Permissions() );
+		$manager->register( new EditingExperience() );
+		$manager->register( new DisableTracking() );
+		$manager->register( new DisableRedisProAds() );
 		
 		if(defined( 'WP_CLI' ) && constant('WP_CLI')) {
 			Deploy::register();

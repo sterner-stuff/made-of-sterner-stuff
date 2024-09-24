@@ -1,3 +1,10 @@
+## [11.6.0] - 2024-09-24
+- Hide Yoast indexing notifications in non-production environments
+- Allow access to TEC troubleshooting page in production
+
+## [11.5.0] - 2024-09-21
+- Hide Gravity Forms update messages
+
 ## [11.4.1] - 2023-08-09
 - Run Composer scripts on deploy
 
