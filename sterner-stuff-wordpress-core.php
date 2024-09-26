@@ -23,6 +23,7 @@ use SternerStuffWordPress\LimitRevisions;
 use SternerStuffWordPress\MaintenanceMode;
 use SternerStuffWordPress\Permissions;
 use SternerStuffWordPress\PluginAPIManager;
+use SternerStuffWordPress\QuadLayers\DisableQuadLayersPluginNotices;
 use SternerStuffWordPress\TheEventsCalendar\AllowTroubleshooting;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
 use SternerStuffWordPress\WordPress\DisableAdminEmailCheck;
@@ -72,6 +73,7 @@ class SternerStuffWordPress {
 		$manager->register( new WPRocket() );
 		$manager->register( new JetpackModes() );
 		$manager->register( new PreservedOptions() );
+		$manager->register( new DisableQuadLayersPluginNotices() );
 		
 		$manager->register( new LimitRevisions() );
 		$manager->register( new Permissions() );

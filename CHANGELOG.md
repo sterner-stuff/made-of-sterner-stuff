@@ -1,3 +1,6 @@
+## [11.7.0] - 2024-09-26
+- Disable QuadLayers plugin notices
+
 ## [11.6.0] - 2024-09-24
 - Hide Yoast indexing notifications in non-production environments
 - Allow access to TEC troubleshooting page in production
