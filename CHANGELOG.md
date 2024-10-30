@@ -1,3 +1,6 @@
+## [12.0.0] - 2024-10-29
+- Exempt Composer-known packages from WordPress core update process
+
 ## [11.7.0] - 2024-09-26
 - Disable QuadLayers plugin notices
 
