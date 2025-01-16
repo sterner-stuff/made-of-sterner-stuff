@@ -27,6 +27,7 @@ use SternerStuffWordPress\QuadLayers\DisableQuadLayersPluginNotices;
 use SternerStuffWordPress\TheEventsCalendar\AllowTroubleshooting;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
 use SternerStuffWordPress\WordPress\DisableAdminEmailCheck;
+use SternerStuffWordPress\WordPress\DisableUpdateNag;
 use SternerStuffWordPress\WordPress\Mailers;
 use SternerStuffWordPress\WordPress\SiteHealthChecks;
 use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
@@ -53,6 +54,7 @@ class SternerStuffWordPress {
 		
 		// WordPress
 		$manager->register( new DisableAdminEmailCheck() );
+		$manager->register( new DisableUpdateNag() );
 		$manager->register( new Mailers() );
 		$manager->register( new SiteHealthChecks() );
 		
