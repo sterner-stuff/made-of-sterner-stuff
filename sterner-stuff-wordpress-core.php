@@ -3,7 +3,7 @@
 Plugin Name: Made of Sterner Stuff
 Plugin URI: https://sternerstuff.dev
 Description: Core functionality for built-to-last Sterner Stuff WordPress sites.
-Version: 12.0.0
+Version: 12.1.0
 Author: Ethan Clevenger
 Author URI: https://sternerstuff.dev
 */
@@ -27,6 +27,7 @@ use SternerStuffWordPress\QuadLayers\DisableQuadLayersPluginNotices;
 use SternerStuffWordPress\TheEventsCalendar\AllowTroubleshooting;
 use SternerStuffWordPress\WooCommerce\WooCommerceSandbox;
 use SternerStuffWordPress\WordPress\DisableAdminEmailCheck;
+use SternerStuffWordPress\WordPress\LoginErrors;
 use SternerStuffWordPress\WordPress\Mailers;
 use SternerStuffWordPress\WordPress\SiteHealthChecks;
 use SternerStuffWordPress\WPMigrateDBPro\PreservedOptions;
@@ -55,6 +56,7 @@ class SternerStuffWordPress {
 		$manager->register( new DisableAdminEmailCheck() );
 		$manager->register( new Mailers() );
 		$manager->register( new SiteHealthChecks() );
+		$manager->register( new LoginErrors() );
 		
 		// WooCommerce
 		$manager->register( new WooCommerceSandbox() );
