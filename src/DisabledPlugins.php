@@ -22,6 +22,7 @@ class DisabledPlugins {
 			'iwp-client/init.php',
 			'official-facebook-pixel/facebook-for-wordpress.php',
 			'tiny-compress-images/tiny-compress-images.php',
+			'two-factor/two-factor.php',
 			'wp-fastest-cache/wpFastestCache.php',
 		]);
 
