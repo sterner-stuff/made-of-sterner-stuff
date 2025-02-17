@@ -1,3 +1,6 @@
+## [12.1.0] - 2025-02-17
+- Hide WordPress core update nag in non-dev environments
+
 ## [12.0.0] - 2024-10-29
 - Exempt Composer-known packages from WordPress core update process
 
