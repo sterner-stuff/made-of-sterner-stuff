@@ -1,3 +1,6 @@
+## [12.1.1] - 2025-02-18
+- Fix Yoast indexing nag filter
+
 ## [12.1.0] - 2025-02-17
 - Hide WordPress core update nag in non-dev environments
 
