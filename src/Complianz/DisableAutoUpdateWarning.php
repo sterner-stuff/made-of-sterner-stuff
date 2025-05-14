@@ -8,7 +8,7 @@ class DisableAutoUpdateWarning implements FilterHookSubscriber {
 
 	public static function get_filters(): array {
 		return [
-			'cmplz_warning_types' => 'cmplz_warning_types',
+			'cmplz_warning_types' => ['cmplz_warning_types', 15, ],
 		];
 	}
 
@@ -18,7 +18,8 @@ class DisableAutoUpdateWarning implements FilterHookSubscriber {
 	 * @param array $warnings The warning types.
 	 * @return array
 	 */
-	public function cmplz_warning_types($warnings) {
+	public function cmplz_warning_types($warnings) 
+	{
 		$key = 'auto-updates-not-enabled1';
 		if( defined('DISALLOW_FILE_MODS') && \DISALLOW_FILE_MODS && isset($warnings[$key]) ) {
 			unset($warnings[$key]);
