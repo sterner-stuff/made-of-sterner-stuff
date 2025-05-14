@@ -13,6 +13,7 @@ use Env\Env;
 use SternerStuffWordPress\Commands\Deploy;
 use SternerStuffWordPress\Commands\SyncDB;
 use SternerStuffWordPress\Commands\Update;
+use SternerStuffWordPress\Complianz\DisableAutoUpdateWarning;
 use SternerStuffWordPress\DisableRedisProAds;
 use SternerStuffWordPress\DisableTracking;
 use SternerStuffWordPress\EditingExperience;
@@ -76,6 +77,7 @@ class SternerStuffWordPress {
 		$manager->register( new JetpackModes() );
 		$manager->register( new PreservedOptions() );
 		$manager->register( new DisableQuadLayersPluginNotices() );
+		$manager->register( new DisableAutoUpdateWarning() );
 		
 		$manager->register( new LimitRevisions() );
 		$manager->register( new Permissions() );
