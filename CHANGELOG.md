@@ -1,3 +1,6 @@
+## [12.2.0] - 2025-05-14
+- Remove Complianz warning about auto updates
+
 ## [12.1.1] - 2025-02-18
 - Fix Yoast indexing nag filter
 
