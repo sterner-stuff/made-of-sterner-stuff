@@ -9,6 +9,12 @@ class Update extends Command {
 	public $name = 'update';
 
 	private $updateInfo = [];
+	private $old_plugins;
+	private $old_themes;
+	private $old_core;
+	private $new_plugins;
+	private $new_themes;
+	private $new_core;
 
 	/**
 	 * Update dependencies and spit out a table.
