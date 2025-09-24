@@ -24,6 +24,7 @@ class DisabledPlugins {
 			'tiny-compress-images/tiny-compress-images.php',
 			'two-factor/two-factor.php',
 			'wp-fastest-cache/wpFastestCache.php',
+			'mailgun/mailgun.php',
 		]);
 
 		Config::apply();
