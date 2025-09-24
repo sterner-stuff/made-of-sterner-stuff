@@ -32,8 +32,12 @@ class Mailers implements ActionHookSubscriber
 				$mailer = 'postmark';
 			}
 		}
-
-
+		if (\WP_ENV === 'staging') {
+			add_filter('wp_mail', function ($args) {
+				$args['to'] = 'staging@sternstuff.dev';
+				return $args;
+			});
+		}
 		switch ($mailer) {
 			case 'mailhog':
 				add_action('phpmailer_init', [$this, 'enable_mailhog']);
