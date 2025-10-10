@@ -32,7 +32,7 @@ class Mailers implements ActionHookSubscriber
 				$mailer = 'postmark';
 			}
 		}
-		if (\WP_ENV === 'staging') {
+		if (!$mailer && defined('WP_ENV') && \WP_ENV === 'staging') {
 			add_filter('wp_mail', function ($args) {
 				$args['to'] = 'staging@sternstuff.dev';
 				return $args;
