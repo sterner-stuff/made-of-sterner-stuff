@@ -1,3 +1,7 @@
+## [12.3.0] - 2026-05-19
+- Disable Mailgun in dev environments
+- Force "to" address for emails in staging environments
+
 ## [12.2.0] - 2025-05-14
 - Remove Complianz warning about auto updates
 
