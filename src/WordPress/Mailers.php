@@ -21,10 +21,34 @@ class Mailers implements ActionHookSubscriber
 		];
 	}
 
+	public static function get_filters()
+	{
+		return [
+			'wp_mail' => 'wp_mail',
+		];
+	}
+
+	public function wp_mail($args)
+	{
+		/**
+		 * Force all staging emails to go to a specific address to prevent accidental emails being sent to real users.
+		 */
+		if (defined('WP_ENV') && \WP_ENV === 'staging') {
+			$args['to'] = apply_filters('sterner-stuff/staging-email', 'staging@sternerstuff.dev');
+		}
+
+		return $args;
+	}
+
 	public function muplugins_loaded()
 	{
 		$mailer = env('MAIL_MAILER');
-
+		
+		/**
+		 * Set the mailer if not explicitly set.
+		 * Infer based on available environment variables.
+		 * Only in production.
+		 */
 		if (!$mailer && defined('WP_ENV') && \WP_ENV === 'production') {
 			if (env('MAILGUN_APIKEY')) {
 				$mailer = 'mailgun';
@@ -32,7 +56,6 @@ class Mailers implements ActionHookSubscriber
 				$mailer = 'postmark';
 			}
 		}
-
 
 		switch ($mailer) {
 			case 'mailhog':
@@ -49,6 +72,9 @@ class Mailers implements ActionHookSubscriber
 		}
 	}
 
+	/**
+	 * Configure Mailhog
+	 */
 	public function enable_mailhog($phpmailer)
 	{
 		$phpmailer->isSMTP();

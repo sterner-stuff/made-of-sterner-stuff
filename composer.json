@@ -7,7 +7,8 @@
     "require": {
         "composer/installers": "~1.0 | ~2.0",
         "roots/wp-config": "^1.0",
-        "oscarotero/env": "^2.1"
+        "oscarotero/env": "^2.1",
+        "lukasbesch/bedrock-plugin-disabler": "^1.4"
     },
     "authors": [
         {
