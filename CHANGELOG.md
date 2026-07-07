@@ -1,3 +1,6 @@
+## [12.3.1] - 2026-07-07
+- Enable Kinsta white-labeling
+
 ## [12.3.0] - 2026-05-19
 - Disable Mailgun in dev environments
 - Force "to" address for emails in staging environments
